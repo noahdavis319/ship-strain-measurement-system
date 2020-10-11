@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>New User Guide &mdash; Ship Strain Measurement System  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ssms package" href="ssms.html" />
+    <link rel="prev" title="Ship Strain Measurement System" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ship Strain Measurement System
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SSMS Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">New User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-a-virtual-machine">Installing a Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-virtual-machine">Creating the Virtual Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-the-source">Getting the Source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#git-version-control">Git Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manually">Manually</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#building-the-project">Building the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#testing-your-installation">Testing your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssms.html">SSMS Module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ship Strain Measurement System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>New User Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/newuser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="new-user-guide">
+<h1>New User Guide<a class="headerlink" href="#new-user-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide is intended to assist programmers easing into contributing to the codebase. The SSMS project uses a
+collection of technologies for building, and deploying it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Testing is not currently performed, but is planned to be later implemented. We’ll talk more about them later.</p>
+</div>
+<div class="section" id="installing-a-virtual-machine">
+<h2>Installing a Virtual Machine<a class="headerlink" href="#installing-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>The first thing to do is get a virtual machine running that you can use for development. I personally prefer
+<a class="reference external" href="https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player.html.html">VMware Player</a> by VMware. You may additionally opt for <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> by Oracle.</p>
+<p>After installing the virtualization tool of your choice, you now need an <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file to install your operating
+system from. For development I use the latest version of <a class="reference external" href="https://releases.ubuntu.com/20.04/">Ubuntu 20.04.1 LTS Desktop</a>, one of many free Linux systems. Download and save the <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file to your
+hard-drive. Your <cite>Downloads</cite> folder is perfectly fine as it will only be needed during your virtual machine
+installation. After the installation has completed and your VM can power up you may delete the <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file. If
+you think you may make system critical errors that will destroy your VM operating system it may be wise to hold onto
+the <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file for a bit.</p>
+</div>
+<div class="section" id="creating-the-virtual-machine">
+<h2>Creating the Virtual Machine<a class="headerlink" href="#creating-the-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>There are many guides and tutorials online for how to create a virtual machine is whichever tool you downloaded.
+<a class="reference external" href="https://kb.vmware.com/s/article/2013483">Here is the official VMware article on creating a virtual machine</a>.
+Because of this I will not go into great detail, rather I will give some recommendations for minimum hardware
+specifications you should allocate to your machine for the best experience.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Hardware</p></td>
+<td><p>Minimum</p></td>
+<td><p>Maximum</p></td>
+</tr>
+<tr class="row-even"><td><p>CPU Cores</p></td>
+<td><p>1</p></td>
+<td><p>MAX - 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>Minimum</p></td>
+<td><p>Default</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage</p></td>
+<td><p>24GB</p></td>
+<td><p>64GB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="code docutils literal notranslate"><span class="pre">MAX</span></code> refers to the maximum option available for you to select. <code class="code docutils literal notranslate"><span class="pre">Minimum</span></code> refers to the minimum
+suggested value from VMware. <code class="code docutils literal notranslate"><span class="pre">Default</span></code> refers to the recommended value from VMware.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Allocating too much of your physical computer hardware to a virtual machine can cause your host machine from
+starving. If in doubt, use whatever settings VMware auto-selects. You will still be required to enter the amount of
+disk-space to allocate for the machine. The virtual machine will not use all of the allocated space until it needs
+to. The system file on your host machine will grow as needed until the configured disk-space maximum has been
+reached.</p>
+</div>
+</div>
+</div>
+<div class="section" id="getting-the-source">
+<h1>Getting the Source<a class="headerlink" href="#getting-the-source" title="Permalink to this headline">¶</a></h1>
+<p>Once logged into your virtual machine you’ll need to get the source code for the project to begin working on it.
+First, let’s check to make sure you have the necessary tools to start.</p>
+<div class="section" id="git-version-control">
+<h2>Git Version Control<a class="headerlink" href="#git-version-control" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> is a command-line version control software that lets developers create a collection of
+changes at once with a description of what the changes do. These collections are called <em>commits</em>. When you <em>commit</em> to
+a repository you are updating the files, directory, and code that is stored on that repository. Each commit should do
+one specific thing, and only make changes to files related to that specific thing. Commits are generally broken down
+into a few different categories: bug-fixes, features, and documentations. In the ideal world, all documentation commits
+should be made at the same time as a bug-fix or feature commit, but most people forget to do the documentation at the
+same time, so it is not uncommon to create a follow-up commit that adds to or modifies the documentation. This
+tutorial, and all subsequent pages, will use <code class="code docutils literal notranslate"><span class="pre">git</span></code> whenever needed.</p>
+<p>Execute the command <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">git</span></code> and inspect the output in the terminal. Did anything print? If not, then
+<code class="code docutils literal notranslate"><span class="pre">git</span></code> is either not installed on your machine or the path to the executable could not be found. We can install
+<code class="code docutils literal notranslate"><span class="pre">git</span></code> by running <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code>. Check to make sure it can be found by runing <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">git</span></code>
+again. You should see the path to the executable be printed. You will be prompted to enter your password again to
+permit the installation. After collecting some information about the <code class="code docutils literal notranslate"><span class="pre">git</span></code> package you will then be asked to
+enter either <code class="code docutils literal notranslate"><span class="pre">Y</span></code> for yes or <code class="code docutils literal notranslate"><span class="pre">N</span></code> for no to verify or cancel package installation. Go ahead and hit <code class="code docutils literal notranslate"><span class="pre">Y</span></code>
+to proceed.</p>
+<p>Now that <code class="code docutils literal notranslate"><span class="pre">git</span></code> is installed we can <cite>clone</cite> the repository to our machine. Open a terminal and change directories
+to your Documents folder.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Documents</span></code></p>
+<p>Now using <code class="code docutils literal notranslate"><span class="pre">git</span></code> we will clone the repository into a new folder named <code class="code docutils literal notranslate"><span class="pre">ssms</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/noahdavis319/ship-strain-measurement-system</span> <span class="pre">ssms</span></code></p>
+<p>Enter your GitHub username and password to continue with the download. Login is required since this repository is
+private.</p>
+<p>Congratulations, you have now downloaded the project source!</p>
+</div>
+<div class="section" id="manually">
+<h2>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h2>
+<p>Additionally, you can download a compressed <code class="code docutils literal notranslate"><span class="pre">.zip</span></code> folder of the project directly from the project
+<a class="reference external" href="https://github.com/noahdavis319/ship-strain-measurement-system">GitHub Page</a>. Save the <code class="code docutils literal notranslate"><span class="pre">.zip</span></code> file and extract
+it to your <cite>Documents</cite>. This tutorial assumes your project source is stored in a folder named <code class="code docutils literal notranslate"><span class="pre">ssms</span></code> so rename
+the extracted folder if you’d like.</p>
+<p>Next, we will check that Python is installed and its version. Run the command <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>. Did anything print?
+If you see the path to the Python executable, then you can skip the next step. Otherwise, go ahead and run
+<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3</span></code>.  Run <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code> to verify that the path to the <code class="code docutils literal notranslate"><span class="pre">python</span></code> executable
+could be found. Lastly, we do <strong>NOT</strong> want to be developing in Python 2.X, so run <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> and confirm
+that you have Python 3.8.X. At the time of writing, Ubuntu 20.04.1 LTS shipped with Python 3.8.5.</p>
+<p>Congratulations, you have now downloaded the project source!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re unable to access the project GitHub page via the embedded link above, try going to
+<a class="reference external" href="https://github.com/">GitHub.com</a> and logging in first. The project repository is private and only project
+members can access it.</p>
+</div>
+</div>
+</div>
+<div class="section" id="building-the-project">
+<h1>Building the Project<a class="headerlink" href="#building-the-project" title="Permalink to this headline">¶</a></h1>
+<p>Lastly, our project uses <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> to build our development environment, download
+project dependencies, generate documentation, create the project distributable wheel, and install the project to our
+path so we can run it. Check if you have <code class="code docutils literal notranslate"><span class="pre">make</span></code> by running <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">make</span></code>. Did anything print? If so, then
+you may skip to the next few steps. If not, it is easiest to just install the <code class="code docutils literal notranslate"><span class="pre">build-essential</span></code> package group
+to get all sorts of development packages. Go ahead and run <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code> and enter your
+password again if prompted for it. Run <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">make</span></code> to verify that the path to the <code class="code docutils literal notranslate"><span class="pre">make</span></code> executable could
+be found.</p>
+<p>Now that <code class="code docutils literal notranslate"><span class="pre">make</span></code> has been installed, open a terminal and move into the project top-level directory of the project,
+which we named to <code class="code docutils literal notranslate"><span class="pre">ssms</span></code> earlier on when we cloned the repository using <code class="code docutils literal notranslate"><span class="pre">git</span></code>. You can quickly get to the
+directory in the terminal by running the command <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Documents/ssms</span></code>, assuming your project is in your
+<em>Documents</em> folder.</p>
+<p>Finally, run the command <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> to create the developer environment, install project dependencies, build the
+project distribution wheel, generate the project HTML documentation, and lastly install the project to our path so we
+can run it with the command: <code class="code docutils literal notranslate"><span class="pre">ssms</span></code></p>
+</div>
+<div class="section" id="testing-your-installation">
+<h1>Testing your Installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this headline">¶</a></h1>
+<p>Without going into how to use the project, I will demonstrate to ways we can make sure the project was built and
+successfully installed. First, run <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">ssms</span></code>. Did it print anything? If not, go back through the log from our
+<code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> command and determine what failed. If the command was found, run <code class="code docutils literal notranslate"><span class="pre">ssms</span> <span class="pre">--help</span></code> to get the help
+message for the project. If you’re prompted with a description of the various commands and flags that can be passed
+the congratulations, you have successfully built, installed, and ran the project!</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ssms.html" class="btn btn-neutral float-right" title="ssms package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Ship Strain Measurement System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Noah Davis
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
