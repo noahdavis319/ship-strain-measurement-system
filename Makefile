@@ -49,5 +49,7 @@ list:
 
 .sphinx:
 	@if [ -d "./venv" ]; then \
+  		sphinx-apidoc -o docs/source/ src/main/python/ssms --force; \
+  		rm docs/source/modules.rst; \
 		cd ./docs && make html; \
 	fi
