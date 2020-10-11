@@ -3,3 +3,7 @@ __pycache__
 target
 .idea
 docs/build
+*.pyc
+*.egg-info
+dist
+build

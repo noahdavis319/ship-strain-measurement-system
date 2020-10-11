@@ -1,4 +1,8 @@
 
+# Building
+wheel
+setuptools==50.3.0
+
 # Coverage
 coverage
 
@@ -10,3 +14,4 @@ sphinx-rtd-theme
 imutils
 PyQt5
 opencv-python-headless
+numpy

@@ -18,5 +18,9 @@ def list_cameras(n=8):
             cap.release()
             pass
 
+    ret = ''
     for cam in found:
-        print(cam)
+        ret += cam
+
+    print(ret)
+    return ret

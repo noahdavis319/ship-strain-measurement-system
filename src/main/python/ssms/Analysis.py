@@ -24,6 +24,7 @@ def detect_shape(c):
 class Analysis(QThread):
     """
     Performs computer vision analysis.
+
     Uses the first camera device detected by OpenCV.
     """
 
