@@ -1,0 +1,12 @@
+
+# Coverage
+coverage
+
+# Sphinx
+Sphinx
+sphinx-rtd-theme
+
+# Project
+imutils
+PyQt5
+opencv-python-headless
