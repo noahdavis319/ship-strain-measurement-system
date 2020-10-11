@@ -2,4 +2,4 @@ venv/
 __pycache__
 target
 .idea
-.pybuilder
+docs/build
