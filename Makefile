@@ -4,7 +4,7 @@ build: .install-dependencies
 	./venv/bin/python3 setup.py sdist bdist_wheel
 	@echo "Deleting ssms.egg-info from project source"
 	rm -rf ./src/main/python/ssms.egg-info
-	make .sphinx
+	make doc
 
 prepare: .create-dev-environment .install-dependencies
 
@@ -29,6 +29,18 @@ clean:
 	@echo "Removing ./dist"
 	@rm -rf ./dist
 
+doc: install
+	@if [ -d "./venv" ]; then \
+  		sphinx-apidoc -o ./src/docs ./src/main/python/ssms --force; \
+  		rm ./src/docs/modules.rst; \
+		sphinx-build -b html -a ./src/docs/ ./build/docs; \
+		rm -rf ./docs; \
+		mv ./build/docs ./docs; \
+		touch ./docs/.nojekyll; \
+		rm -rf ./src/docs/build; \
+		rm -rf ./docs/.doctrees; \
+	fi
+
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
@@ -46,16 +58,4 @@ list:
 		./venv/bin/pip install -r requirements.txt; \
 	else \
 	  	make prepare; \
-	fi
-
-.sphinx: install
-	@if [ -d "./venv" ]; then \
-  		sphinx-apidoc -o ./src/docs ./src/main/python/ssms --force; \
-  		rm ./src/docs/modules.rst; \
-		sphinx-build -b html -a ./src/docs/ ./build/docs; \
-		rm -rf ./docs; \
-		mv ./build/docs ./docs; \
-		touch ./docs/.nojekyll; \
-		rm -rf ./src/docs/build; \
-		rm -rf ./docs/.doctrees; \
 	fi
