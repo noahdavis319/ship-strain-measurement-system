@@ -6,3 +6,4 @@ target
 *.egg-info
 dist
 /build
+docs/.doctrees/environment.pickle

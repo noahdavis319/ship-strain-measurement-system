@@ -55,5 +55,6 @@ list:
 		sphinx-build -b html -a ./src/docs/ ./build/docs; \
 		rm -rf ./docs; \
 		mv ./build/docs ./docs; \
+		touch ./docs/.nojekyll; \
 		rm -rf ./src/docs/build; \
 	fi
