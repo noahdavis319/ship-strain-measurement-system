@@ -126,9 +126,15 @@ which we named to :code:`ssms` earlier on when we cloned the repository using :c
 directory in the terminal by running the command :code:`cd ~/Documents/ssms`, assuming your project is in your
 *Documents* folder.
 
-Finally, run the command :code:`make all` to create the developer environment, install project dependencies, build the
-project distribution wheel, generate the project HTML documentation, and lastly install the project to our path so we
-can run it with the command: :code:`ssms`
+Finally, run the following commands to create the developer environment, source the environment, install project
+dependencies, build the project distribution wheel, generate the project HTML documentation, and lastly install the
+project to our path so we can run it with the command :code:`ssms`
+
+.. code:: shell
+
+    make prepare
+    source venv/bin/activate
+    make all
 
 Testing your Installation
 =========================
@@ -138,3 +144,9 @@ successfully installed. First, run :code:`which ssms`. Did it print anything? If
 :code:`make all` command and determine what failed. If the command was found, run :code:`ssms --help` to get the help
 message for the project. If you're prompted with a description of the various commands and flags that can be passed
 the congratulations, you have successfully built, installed, and ran the project!
+
+Before you go and start developing, make sure to activate the virtual environment that was created for you every time
+you create a new terminal session. Without doing so, all the :code:`make` commands will attempt to use your system
+Python packages which are missing all of our project dependencies and build tools, ultimately leading to a failed build
+attempt. You can activate the virtual environment by running :code:`source venv/bin/activate` from the :code:`ssms`
+directory.

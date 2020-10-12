@@ -290,9 +290,14 @@ be found.</p>
 which we named to <code class="code docutils literal notranslate"><span class="pre">ssms</span></code> earlier on when we cloned the repository using <code class="code docutils literal notranslate"><span class="pre">git</span></code>. You can quickly get to the
 directory in the terminal by running the command <code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Documents/ssms</span></code>, assuming your project is in your
 <em>Documents</em> folder.</p>
-<p>Finally, run the command <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> to create the developer environment, install project dependencies, build the
-project distribution wheel, generate the project HTML documentation, and lastly install the project to our path so we
-can run it with the command: <code class="code docutils literal notranslate"><span class="pre">ssms</span></code></p>
+<p>Finally, run the following commands to create the developer environment, source the environment, install project
+dependencies, build the project distribution wheel, generate the project HTML documentation, and lastly install the
+project to our path so we can run it with the command <code class="code docutils literal notranslate"><span class="pre">ssms</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make prepare
+<span class="nb">source</span> venv/bin/activate
+make all
+</pre></div>
+</div>
 </div>
 <div class="section" id="testing-your-installation">
 <h1>Testing your Installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this headline">¶</a></h1>
@@ -301,6 +306,11 @@ successfully installed. First, run <code class="code docutils literal notranslat
 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> command and determine what failed. If the command was found, run <code class="code docutils literal notranslate"><span class="pre">ssms</span> <span class="pre">--help</span></code> to get the help
 message for the project. If you’re prompted with a description of the various commands and flags that can be passed
 the congratulations, you have successfully built, installed, and ran the project!</p>
+<p>Before you go and start developing, make sure to activate the virtual environment that was created for you every time
+you create a new terminal session. Without doing so, all the <code class="code docutils literal notranslate"><span class="pre">make</span></code> commands will attempt to use your system
+Python packages which are missing all of our project dependencies and build tools, ultimately leading to a failed build
+attempt. You can activate the virtual environment by running <code class="code docutils literal notranslate"><span class="pre">source</span> <span class="pre">venv/bin/activate</span></code> from the <code class="code docutils literal notranslate"><span class="pre">ssms</span></code>
+directory.</p>
 </div>
 
 
