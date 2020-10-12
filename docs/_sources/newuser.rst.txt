@@ -7,6 +7,12 @@ collection of technologies for building, and deploying it.
 .. note::
    Testing is not currently performed, but is planned to be later implemented. We'll talk more about them later.
 
+Development Operating System
+----------------------------
+
+We use an operating system in a virtual machine to isolate our development environment from our host computer. This way
+we can change anything we want and if something breaks, we simply destroy the virtual machine and create a new one.
+
 Installing Virtual Machine Software
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -50,7 +56,7 @@ Storage       24GB     64GB
     reached.
 
 Getting the Source
-==================
+------------------
 
 Once logged into your virtual machine you'll need to get the source code for the project to begin working on it.
 First, let's check to make sure you have the necessary tools to start.
@@ -115,7 +121,7 @@ Congratulations, you have now downloaded the project source!
     members can access it.
 
 Building the Project
-====================
+--------------------
 
 Lastly, our project uses `Make <https://www.gnu.org/software/make/>`_ to build our development environment, download
 project dependencies, generate documentation, create the project distributable wheel, and install the project to our
@@ -141,7 +147,7 @@ project to our path so we can run it with the command :code:`ssms`
     make all
 
 Testing your Installation
-=========================
+-------------------------
 
 Without going into how to use the project, I will demonstrate to ways we can make sure the project was built and
 successfully installed. First, run :code:`which ssms`. Did it print anything? If not, go back through the log from our

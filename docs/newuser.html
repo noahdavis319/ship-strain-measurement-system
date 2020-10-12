@@ -82,20 +82,26 @@
               
             
             
-              <p class="caption"><span class="caption-text">SSMS Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">New User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-virtual-machine-software">Installing Virtual Machine Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-the-virtual-machine">Creating the Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-operating-system">Development Operating System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-virtual-machine-software">Installing Virtual Machine Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-virtual-machine">Creating the Virtual Machine</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#getting-the-source">Getting the Source</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#git-version-control">Git Version Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manually">Manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-source">Getting the Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#git-version-control">Git Version Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manually">Manually</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#building-the-project">Building the Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#testing-your-installation">Testing your Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-project">Building the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-your-installation">Testing your Installation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Modules:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="ssms.html">SSMS Module</a></li>
 </ul>
 
@@ -170,8 +176,12 @@ collection of technologies for building, and deploying it.</p>
 <p class="admonition-title">Note</p>
 <p>Testing is not currently performed, but is planned to be later implemented. We’ll talk more about them later.</p>
 </div>
+<div class="section" id="development-operating-system">
+<h2>Development Operating System<a class="headerlink" href="#development-operating-system" title="Permalink to this headline">¶</a></h2>
+<p>We use an operating system in a virtual machine to isolate our development environment from our host computer. This way
+we can change anything we want and if something breaks, we simply destroy the virtual machine and create a new one.</p>
 <div class="section" id="installing-virtual-machine-software">
-<h2>Installing Virtual Machine Software<a class="headerlink" href="#installing-virtual-machine-software" title="Permalink to this headline">¶</a></h2>
+<h3>Installing Virtual Machine Software<a class="headerlink" href="#installing-virtual-machine-software" title="Permalink to this headline">¶</a></h3>
 <p>The first thing to do is get a virtual machine running that you can use for development. I personally prefer
 <a class="reference external" href="https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-player.html.html">VMware Player</a> by VMware. You may additionally opt for <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> by Oracle.</p>
 <p>After installing the virtualization tool of your choice, you now need an <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file to install your operating
@@ -182,7 +192,7 @@ you think you may make system critical errors that will destroy your VM operatin
 the <code class="code docutils literal notranslate"><span class="pre">.iso</span></code> file for a bit.</p>
 </div>
 <div class="section" id="creating-the-virtual-machine">
-<h2>Creating the Virtual Machine<a class="headerlink" href="#creating-the-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<h3>Creating the Virtual Machine<a class="headerlink" href="#creating-the-virtual-machine" title="Permalink to this headline">¶</a></h3>
 <p>There are many guides and tutorials online for how to create a virtual machine in whichever tool you downloaded.
 <a class="reference external" href="https://kb.vmware.com/s/article/2013483">Here is the official VMware article on creating a virtual machine</a>.
 Because of this I will not go into great detail, rather I will give some recommendations for minimum hardware
@@ -228,11 +238,11 @@ reached.</p>
 </div>
 </div>
 <div class="section" id="getting-the-source">
-<h1>Getting the Source<a class="headerlink" href="#getting-the-source" title="Permalink to this headline">¶</a></h1>
+<h2>Getting the Source<a class="headerlink" href="#getting-the-source" title="Permalink to this headline">¶</a></h2>
 <p>Once logged into your virtual machine you’ll need to get the source code for the project to begin working on it.
 First, let’s check to make sure you have the necessary tools to start.</p>
 <div class="section" id="git-version-control">
-<h2>Git Version Control<a class="headerlink" href="#git-version-control" title="Permalink to this headline">¶</a></h2>
+<h3>Git Version Control<a class="headerlink" href="#git-version-control" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://git-scm.com/">Git</a> is a command-line version control software that lets developers create a collection of
 changes at once with a description of what the changes do. These collections are called <em>commits</em>. When you <em>commit</em> to
 a repository you are updating the files, directory, and code that is stored on that repository. Each commit should do
@@ -262,7 +272,7 @@ private.</p>
 <p>Congratulations, you have now downloaded the project source!</p>
 </div>
 <div class="section" id="manually">
-<h2>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h2>
+<h3>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h3>
 <p>Additionally, you can download a compressed <code class="code docutils literal notranslate"><span class="pre">.zip</span></code> folder of the project directly from the project
 <a class="reference external" href="https://github.com/noahdavis319/ship-strain-measurement-system">GitHub Page</a>. Save the <code class="code docutils literal notranslate"><span class="pre">.zip</span></code> file and extract
 it to your <cite>Documents</cite>. This tutorial assumes your project source is stored in a folder named <code class="code docutils literal notranslate"><span class="pre">ssms</span></code> so rename
@@ -282,7 +292,7 @@ members can access it.</p>
 </div>
 </div>
 <div class="section" id="building-the-project">
-<h1>Building the Project<a class="headerlink" href="#building-the-project" title="Permalink to this headline">¶</a></h1>
+<h2>Building the Project<a class="headerlink" href="#building-the-project" title="Permalink to this headline">¶</a></h2>
 <p>Lastly, our project uses <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> to build our development environment, download
 project dependencies, generate documentation, create the project distributable wheel, and install the project to our
 path so we can run it. Check if you have <code class="code docutils literal notranslate"><span class="pre">make</span></code> by running <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">make</span></code>. Did anything print? If so, then
@@ -304,7 +314,7 @@ make all
 </div>
 </div>
 <div class="section" id="testing-your-installation">
-<h1>Testing your Installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this headline">¶</a></h1>
+<h2>Testing your Installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this headline">¶</a></h2>
 <p>Without going into how to use the project, I will demonstrate to ways we can make sure the project was built and
 successfully installed. First, run <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">ssms</span></code>. Did it print anything? If not, go back through the log from our
 <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> command and determine what failed. If the command was found, run <code class="code docutils literal notranslate"><span class="pre">ssms</span> <span class="pre">--help</span></code> to get the help
@@ -315,6 +325,7 @@ you create a new terminal session. Without doing so, all the <code class="code d
 Python packages which are missing all of our project dependencies and build tools, ultimately leading to a failed build
 attempt. You can activate the virtual environment by running <code class="code docutils literal notranslate"><span class="pre">source</span> <span class="pre">venv/bin/activate</span></code> from the <code class="code docutils literal notranslate"><span class="pre">ssms</span></code>
 directory.</p>
+</div>
 </div>
 
 

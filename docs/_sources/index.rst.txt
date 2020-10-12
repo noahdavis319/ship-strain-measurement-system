@@ -19,9 +19,13 @@ degrees of axial strain.
 
 .. toctree::
    :maxdepth: 3
-   :caption: SSMS Contents:
+   :caption: Introduction:
 
    newuser
+
+.. toctree::
+   :caption: Modules:
+
    SSMS Module <ssms>
 
 Index and search
