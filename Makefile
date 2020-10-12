@@ -57,4 +57,5 @@ list:
 		mv ./build/docs ./docs; \
 		touch ./docs/.nojekyll; \
 		rm -rf ./src/docs/build; \
+		rm -rf ./docs/.doctrees; \
 	fi
