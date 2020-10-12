@@ -7,8 +7,8 @@ collection of technologies for building, and deploying it.
 .. note::
    Testing is not currently performed, but is planned to be later implemented. We'll talk more about them later.
 
-Installing a Virtual Machine
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installing Virtual Machine Software
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first thing to do is get a virtual machine running that you can use for development. I personally prefer
 `VMware Player <https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-
