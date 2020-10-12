@@ -25,7 +25,7 @@ the :code:`.iso` file for a bit.
 Creating the Virtual Machine
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are many guides and tutorials online for how to create a virtual machine is whichever tool you downloaded.
+There are many guides and tutorials online for how to create a virtual machine in whichever tool you downloaded.
 `Here is the official VMware article on creating a virtual machine <https://kb.vmware.com/s/article/2013483>`_.
 Because of this I will not go into great detail, rather I will give some recommendations for minimum hardware
 specifications you should allocate to your machine for the best experience.
@@ -69,20 +69,24 @@ tutorial, and all subsequent pages, will use :code:`git` whenever needed.
 
 Execute the command :code:`which git` and inspect the output in the terminal. Did anything print? If not, then
 :code:`git` is either not installed on your machine or the path to the executable could not be found. We can install
-:code:`git` by running :code:`sudo apt install git`. Check to make sure it can be found by runing :code:`which git`
-again. You should see the path to the executable be printed. You will be prompted to enter your password again to
+:code:`git` by running :code:`sudo apt install git`. You will be prompted to enter your password again to
 permit the installation. After collecting some information about the :code:`git` package you will then be asked to
 enter either :code:`Y` for yes or :code:`N` for no to verify or cancel package installation. Go ahead and hit :code:`Y`
-to proceed.
+to proceed. Check to make sure it can be found by runing :code:`which git` again. You should see the path to the
+executable be printed.
 
 Now that :code:`git` is installed we can `clone` the repository to our machine. Open a terminal and change directories
 to your Documents folder.
 
-:code:`cd ~/Documents`
+.. code:: shell
+
+    cd ~/Documents
 
 Now using :code:`git` we will clone the repository into a new folder named :code:`ssms`
 
-:code:`git clone https://github.com/noahdavis319/ship-strain-measurement-system ssms`
+.. code:: shell
+
+    git clone https://github.com/noahdavis319/ship-strain-measurement-system ssms
 
 Enter your GitHub username and password to continue with the download. Login is required since this repository is
 private.

@@ -183,7 +183,7 @@ the <code class="code docutils literal notranslate"><span class="pre">.iso</span
 </div>
 <div class="section" id="creating-the-virtual-machine">
 <h2>Creating the Virtual Machine<a class="headerlink" href="#creating-the-virtual-machine" title="Permalink to this headline">¶</a></h2>
-<p>There are many guides and tutorials online for how to create a virtual machine is whichever tool you downloaded.
+<p>There are many guides and tutorials online for how to create a virtual machine in whichever tool you downloaded.
 <a class="reference external" href="https://kb.vmware.com/s/article/2013483">Here is the official VMware article on creating a virtual machine</a>.
 Because of this I will not go into great detail, rather I will give some recommendations for minimum hardware
 specifications you should allocate to your machine for the best experience.</p>
@@ -243,16 +243,20 @@ same time, so it is not uncommon to create a follow-up commit that adds to or mo
 tutorial, and all subsequent pages, will use <code class="code docutils literal notranslate"><span class="pre">git</span></code> whenever needed.</p>
 <p>Execute the command <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">git</span></code> and inspect the output in the terminal. Did anything print? If not, then
 <code class="code docutils literal notranslate"><span class="pre">git</span></code> is either not installed on your machine or the path to the executable could not be found. We can install
-<code class="code docutils literal notranslate"><span class="pre">git</span></code> by running <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code>. Check to make sure it can be found by runing <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">git</span></code>
-again. You should see the path to the executable be printed. You will be prompted to enter your password again to
+<code class="code docutils literal notranslate"><span class="pre">git</span></code> by running <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code>. You will be prompted to enter your password again to
 permit the installation. After collecting some information about the <code class="code docutils literal notranslate"><span class="pre">git</span></code> package you will then be asked to
 enter either <code class="code docutils literal notranslate"><span class="pre">Y</span></code> for yes or <code class="code docutils literal notranslate"><span class="pre">N</span></code> for no to verify or cancel package installation. Go ahead and hit <code class="code docutils literal notranslate"><span class="pre">Y</span></code>
-to proceed.</p>
+to proceed. Check to make sure it can be found by runing <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">git</span></code> again. You should see the path to the
+executable be printed.</p>
 <p>Now that <code class="code docutils literal notranslate"><span class="pre">git</span></code> is installed we can <cite>clone</cite> the repository to our machine. Open a terminal and change directories
 to your Documents folder.</p>
-<p><code class="code docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Documents</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Documents
+</pre></div>
+</div>
 <p>Now using <code class="code docutils literal notranslate"><span class="pre">git</span></code> we will clone the repository into a new folder named <code class="code docutils literal notranslate"><span class="pre">ssms</span></code></p>
-<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/noahdavis319/ship-strain-measurement-system</span> <span class="pre">ssms</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/noahdavis319/ship-strain-measurement-system ssms
+</pre></div>
+</div>
 <p>Enter your GitHub username and password to continue with the download. Login is required since this repository is
 private.</p>
 <p>Congratulations, you have now downloaded the project source!</p>
