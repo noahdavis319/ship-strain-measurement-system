@@ -24,6 +24,11 @@ degrees of axial strain.
    newuser
 
 .. toctree::
+   :caption: Developing
+
+   building
+
+.. toctree::
    :caption: Modules:
 
    SSMS Module <ssms>

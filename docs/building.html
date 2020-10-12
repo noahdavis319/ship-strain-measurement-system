@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Ship Strain Measurement System  documentation</title>
+  <title>Building &mdash; Ship Strain Measurement System  documentation</title>
   
 
   
@@ -20,7 +20,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -35,9 +34,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ssms package" href="ssms.html" />
+    <link rel="prev" title="New User Guide" href="newuser.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +64,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -87,8 +87,8 @@
 <li class="toctree-l1"><a class="reference internal" href="newuser.html">New User Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developing</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="building.html">Building</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Modules:</span></p>
 <ul>
@@ -139,12 +139,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Building</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/building.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -156,23 +158,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="building">
+<h1>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h1>
+<p>The SSMS project uses a <code class="code docutils literal notranslate"><span class="pre">Makefile</span></code> to create target builds which perform different tasks. Each target runs a
+selection of shell scripts which can perform a single task, or run additional targets it may depend on. Currently,
+there is a task to <code class="code docutils literal notranslate"><span class="pre">clean</span></code> <code class="code docutils literal notranslate"><span class="pre">prepare</span></code> <code class="code docutils literal notranslate"><span class="pre">build</span></code> <code class="code docutils literal notranslate"><span class="pre">install</span></code> <code class="code docutils literal notranslate"><span class="pre">doc</span></code> and lastly <code class="code docutils literal notranslate"><span class="pre">all</span></code> which
+will run all of the previously mentioned tasks, in that order. Additionally, this is a <code class="code docutils literal notranslate"><span class="pre">list</span></code> task that will
+print out all possible global tasks.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ssms.html" class="btn btn-neutral float-right" title="ssms package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="newuser.html" class="btn btn-neutral float-left" title="New User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -212,14 +220,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
