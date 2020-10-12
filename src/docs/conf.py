@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src/main/python/ssms'))
+sys.path.insert(0, os.path.abspath('../main/python/ssms'))
 
 
 # -- Project information -----------------------------------------------------

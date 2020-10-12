@@ -12,9 +12,6 @@ config = {
     'description': 'Perform strain measurements using computer vision.',
     'entry_points': {
         'console_scripts': ['ssms=ssms.cli:cli']
-    },
-    'egg_info': {
-        'egg_base': './build/'
     }
 }
 

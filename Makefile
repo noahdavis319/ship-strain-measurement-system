@@ -1,9 +1,10 @@
 
-build: .install-dependencies .sphinx
+build: .install-dependencies
 	@echo "Building project wheel"
 	./venv/bin/python3 setup.py sdist bdist_wheel
 	@echo "Deleting ssms.egg-info from project source"
 	rm -rf ./src/main/python/ssms.egg-info
+	make .sphinx
 
 prepare: .create-dev-environment .install-dependencies
 
@@ -12,7 +13,7 @@ install:
   		if [ -d "./dist" ]; then \
   			./venv/bin/pip install dist/*.whl --upgrade --force-reinstall; \
   		else \
-  		  	make build; \
+  		  	make .install-dependencies; \
   		fi \
   	else \
   	  make all; \
@@ -47,9 +48,12 @@ list:
 	  	make prepare; \
 	fi
 
-.sphinx:
+.sphinx: install
 	@if [ -d "./venv" ]; then \
-  		sphinx-apidoc -o docs/source/ src/main/python/ssms --force; \
-  		rm docs/source/modules.rst; \
-		cd ./docs && make html; \
+  		sphinx-apidoc -o ./src/docs ./src/main/python/ssms --force; \
+  		rm ./src/docs/modules.rst; \
+		sphinx-build -b html -a ./src/docs/ ./build/docs; \
+		rm -rf ./docs; \
+		mv ./build/docs ./docs; \
+		rm -rf ./src/docs/build; \
 	fi
