@@ -7,6 +7,14 @@ collection of technologies for building, and deploying it.
 .. note::
    Testing is not currently performed, but is planned to be later implemented. We'll talk more about them later.
 
+.. warning::
+    Due to the architecture of a Raspberry Pi and the Raspberry Pi OS, you will need to manually build the project
+    on your Raspberry Pi. This guide uses virtual environments to ensure that package dependencies are compatible
+    with each other. On a Raspberry Pi however, certain packages cannot be installed using
+    :code:`pip install {package}`, for example :code:`PyQt5` is best performed on a Raspberry Pi using
+    :code:`sudo apt install python3-pyqt5`. An additional guide for Raspberry Pi building, testing, and installation
+    will be created in the near future.
+
 Development Operating System
 ----------------------------
 

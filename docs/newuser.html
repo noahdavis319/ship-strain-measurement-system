@@ -180,6 +180,15 @@ collection of technologies for building, and deploying it.</p>
 <p class="admonition-title">Note</p>
 <p>Testing is not currently performed, but is planned to be later implemented. We’ll talk more about them later.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to the architecture of a Raspberry Pi and the Raspberry Pi OS, you will need to manually build the project
+on your Raspberry Pi. This guide uses virtual environments to ensure that package dependencies are compatible
+with each other. On a Raspberry Pi however, certain packages cannot be installed using
+<code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">{package}</span></code>, for example <code class="code docutils literal notranslate"><span class="pre">PyQt5</span></code> is best performed on a Raspberry Pi using
+<code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-pyqt5</span></code>. An additional guide for Raspberry Pi building, testing, and installation
+will be created in the near future.</p>
+</div>
 <div class="section" id="development-operating-system">
 <h2>Development Operating System<a class="headerlink" href="#development-operating-system" title="Permalink to this headline">¶</a></h2>
 <p>We use an operating system in a virtual machine to isolate our development environment from our host computer. This way
