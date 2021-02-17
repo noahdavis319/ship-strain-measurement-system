@@ -1,7 +1,7 @@
 
 # Building
 wheel
-setuptools==50.3.0
+setuptools
 
 # Coverage
 coverage
@@ -15,3 +15,5 @@ imutils
 PyQt5
 opencv-python-headless
 numpy
+pyqtgraph
+scipy

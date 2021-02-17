@@ -9,10 +9,6 @@ class SSMS:
     """
     Uses computer vision to perform strain measurement calculations.
     """
-    def __init__(self):
+    def __init__(self, args):
         print('Creating analysis object.')
-        # self.analysis = Analysis.Analysis()
-        app = QApplication([])
-        self.display = Display.Display()
-        self.display.show()
-        app.exec_()
+        self.display = Display.Display(args)

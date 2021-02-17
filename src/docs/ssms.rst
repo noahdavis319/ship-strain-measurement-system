@@ -44,6 +44,14 @@ ssms.cli module
    :undoc-members:
    :show-inheritance:
 
+ssms.timing module
+------------------
+
+.. automodule:: ssms.timing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 ssms.utils module
 -----------------
 

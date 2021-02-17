@@ -2,11 +2,14 @@
 import cv2
 import queue
 import threading
+import time
 
 
 class BufferedCamera:
     def __init__(self, name):
-        self.cap = cv2.VideoCapture(name)
+        self.name = name
+        self.ntype = type(name)
+        self.cap = cv2.VideoCapture(self.name)
         self.q = queue.Queue()
         self.t = threading.Thread(target=self._reader)
         self.t.daemon = True
@@ -24,6 +27,8 @@ class BufferedCamera:
                 except queue.Empty:
                     pass
             self.q.put(frame)
+            if self.ntype == str:
+                time.sleep(0.024)
 
     def read(self):
         return self.q.get()

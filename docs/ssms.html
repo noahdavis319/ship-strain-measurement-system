@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>ssms package &mdash; Ship Strain Measurement System  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -50,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ship Strain Measurement System
+            <a href="index.html" class="icon icon-home"> Ship Strain Measurement System
           
 
           
@@ -98,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-ssms.Display">ssms.Display module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ssms.SSMS">ssms.SSMS module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ssms.cli">ssms.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ssms.timing">ssms.timing module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ssms.utils">ssms.utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ssms">Module contents</a></li>
 </ul>
@@ -142,6 +145,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -153,7 +158,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/ssms.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -176,13 +181,23 @@
 <span id="ssms-analysis-module"></span><h2>ssms.Analysis module<a class="headerlink" href="#module-ssms.Analysis" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="ssms.Analysis.Analysis">
-<em class="property">class </em><code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">Analysis</code><a class="headerlink" href="#ssms.Analysis.Analysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">Analysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Analysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyQt5.QtCore.QThread</span></code></p>
 <p>Performs computer vision analysis.</p>
 <p>Uses the first camera device detected by OpenCV.</p>
 <dl class="py attribute">
 <dt id="ssms.Analysis.Analysis.change_image_signal">
 <code class="sig-name descname">change_image_signal</code><a class="headerlink" href="#ssms.Analysis.Analysis.change_image_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ssms.Analysis.Analysis.change_plot_signal">
+<code class="sig-name descname">change_plot_signal</code><a class="headerlink" href="#ssms.Analysis.Analysis.change_plot_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Analysis.Analysis.get_state">
+<code class="sig-name descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Analysis.get_state" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -196,15 +211,177 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="ssms.Analysis.Analysis.send_frame">
+<code class="sig-name descname">send_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Analysis.send_frame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Analysis.Analysis.set_state">
+<code class="sig-name descname">set_state</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Analysis.set_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="ssms.Analysis.Analysis.stop">
 <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Analysis.stop" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="ssms.Analysis.Shape">
+<em class="property">class </em><code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">Shape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.Shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="ssms.Analysis.Shape.PLUS">
+<code class="sig-name descname">PLUS</code><em class="property"> = 2</em><a class="headerlink" href="#ssms.Analysis.Shape.PLUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ssms.Analysis.Shape.TRIANGLE">
+<code class="sig-name descname">TRIANGLE</code><em class="property"> = 1</em><a class="headerlink" href="#ssms.Analysis.Shape.TRIANGLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.calc_contour_center">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">calc_contour_center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contour</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.calc_contour_center" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.calc_distance">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">calc_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pointA</span></em>, <em class="sig-param"><span class="n">pointB</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.calc_distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.calc_hypotenuse">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">calc_hypotenuse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.calc_hypotenuse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.calc_movement">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">calc_movement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">box</span></em>, <em class="sig-param"><span class="n">l_origin</span></em>, <em class="sig-param"><span class="n">r_origin</span></em>, <em class="sig-param"><span class="n">angle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.calc_movement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.create_box_from_contours">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">create_box_from_contours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contours</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.create_box_from_contours" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="ssms.Analysis.detect_shape">
 <code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">detect_shape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.detect_shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.do_contours_align_to">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">do_contours_align_to</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contours</span></em>, <em class="sig-param"><span class="n">contour</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">2.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.do_contours_align_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.do_contours_make_square">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">do_contours_make_square</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contours</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.do_contours_make_square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.does_plus_lie_in_triangles">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">does_plus_lie_in_triangles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plus</span></em>, <em class="sig-param"><span class="n">triangles</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.does_plus_lie_in_triangles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_box">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_box</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">box</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_contour_outline">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_contour_outline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">co</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_contour_outline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_contour_rect">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_contour_rect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">box</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_contour_rect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_target_angle_lines">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_target_angle_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">co</span></em>, <em class="sig-param"><span class="n">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_target_angle_lines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_target_outline">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_target_outline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">contours</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_target_outline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_text_with_snow">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_text_with_snow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">row</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_text_with_snow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.draw_vertex_points">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">draw_vertex_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">img</span></em>, <em class="sig-param"><span class="n">co</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.draw_vertex_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.fast_contour_filter">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">fast_contour_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contour</span></em>, <em class="sig-param"><span class="n">last_contours</span></em>, <em class="sig-param"><span class="n">r</span><span class="o">=</span><span class="default_value">4.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.fast_contour_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.get_bounding_box_of_contours">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">get_bounding_box_of_contours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contours</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.get_bounding_box_of_contours" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.get_contours">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">get_contours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.get_contours" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.get_image">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">get_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">capture_device</span></em>, <em class="sig-param"><span class="n">scale_percent</span><span class="o">=</span><span class="default_value">50</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.get_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.is_contour_in_box">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">is_contour_in_box</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contour</span></em>, <em class="sig-param"><span class="n">box</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.is_contour_in_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.is_contour_isosceles_right_triangle">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">is_contour_isosceles_right_triangle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contour</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.is_contour_isosceles_right_triangle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.is_contour_plus">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">is_contour_plus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contour</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.is_contour_plus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.is_plus_centered">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">is_plus_centered</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plus</span></em>, <em class="sig-param"><span class="n">triangles_box</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.is_plus_centered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.is_target_found">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">is_target_found</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plus</span></em>, <em class="sig-param"><span class="n">triangles</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.is_target_found" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.order_triangles">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">order_triangles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">triangles</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.order_triangles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.order_triangles_old">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">order_triangles_old</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">triangles</span></em>, <em class="sig-param"><span class="n">image_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.order_triangles_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Analysis.val_close_to">
+<code class="sig-prename descclassname">ssms.Analysis.</code><code class="sig-name descname">val_close_to</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">valA</span></em>, <em class="sig-param"><span class="n">valB</span></em>, <em class="sig-param"><span class="n">ptol</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">vtol</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Analysis.val_close_to" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -226,28 +403,74 @@
 <span id="ssms-display-module"></span><h2>ssms.Display module<a class="headerlink" href="#module-ssms.Display" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="ssms.Display.Display">
-<em class="property">class </em><code class="sig-prename descclassname">ssms.Display.</code><code class="sig-name descname">Display</code><a class="headerlink" href="#ssms.Display.Display" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">ssms.Display.</code><code class="sig-name descname">Display</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="ssms.Display.Ui_MainWindow">
+<em class="property">class </em><code class="sig-prename descclassname">ssms.Display.</code><code class="sig-name descname">Ui_MainWindow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">MainWindow</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt id="ssms.Display.Display.convert_cv_qt">
-<code class="sig-name descname">convert_cv_qt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cv_img</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Display.convert_cv_qt" title="Permalink to this definition">¶</a></dt>
+<dt id="ssms.Display.Ui_MainWindow.button_click">
+<code class="sig-name descname">button_click</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.button_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.convert_cv_qt">
+<code class="sig-name descname">convert_cv_qt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cv_img</span></em>, <em class="sig-param"><span class="n">scaled</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.convert_cv_qt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert from an opencv image to QPixmap</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="ssms.Display.Display.update_image">
-<code class="sig-name descname">update_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cv_img</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Display.update_image" title="Permalink to this definition">¶</a></dt>
+<dt id="ssms.Display.Ui_MainWindow.fill_data">
+<code class="sig-name descname">fill_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.fill_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.plot_original">
+<code class="sig-name descname">plot_original</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.plot_original" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.plot_sg">
+<code class="sig-name descname">plot_sg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.plot_sg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.retranslateUi">
+<code class="sig-name descname">retranslateUi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">MainWindow</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.retranslateUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.update_data_label">
+<code class="sig-name descname">update_data_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_index</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.update_data_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.update_image">
+<code class="sig-name descname">update_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cv_img</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.update_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the image_label with a new opencv image</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="ssms.Display.Ui_MainWindow.update_plot">
+<code class="sig-name descname">update_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.Ui_MainWindow.update_plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
+
+<dl class="py function">
+<dt id="ssms.Display.configure_plot">
+<code class="sig-prename descclassname">ssms.Display.</code><code class="sig-name descname">configure_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot</span></em>, <em class="sig-param"><span class="n">y_min</span></em>, <em class="sig-param"><span class="n">y_max</span></em>, <em class="sig-param"><span class="n">title</span></em>, <em class="sig-param"><span class="n">x_label</span></em>, <em class="sig-param"><span class="n">y_label</span></em>, <em class="sig-param"><span class="n">invert</span></em>, <em class="sig-param"><span class="n">bottom_major_spacing</span></em>, <em class="sig-param"><span class="n">bottom_minor_spacing</span></em>, <em class="sig-param"><span class="n">left_major_spacing</span></em>, <em class="sig-param"><span class="n">left_minor_spacing</span></em>, <em class="sig-param"><span class="n">bottom_grid</span></em>, <em class="sig-param"><span class="n">left_grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.Display.configure_plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-ssms.SSMS">
 <span id="ssms-ssms-module"></span><h2>ssms.SSMS module<a class="headerlink" href="#module-ssms.SSMS" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="ssms.SSMS.SSMS">
-<em class="property">class </em><code class="sig-prename descclassname">ssms.SSMS.</code><code class="sig-name descname">SSMS</code><a class="headerlink" href="#ssms.SSMS.SSMS" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">ssms.SSMS.</code><code class="sig-name descname">SSMS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.SSMS.SSMS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Uses computer vision to perform strain measurement calculations.</p>
 </dd></dl>
@@ -260,6 +483,19 @@
 <code class="sig-prename descclassname">ssms.cli.</code><code class="sig-name descname">cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.cli.cli" title="Permalink to this definition">¶</a></dt>
 <dd><p>The entry point to SSMS.</p>
 </dd></dl>
+
+</div>
+<div class="section" id="module-ssms.timing">
+<span id="ssms-timing-module"></span><h2>ssms.timing module<a class="headerlink" href="#module-ssms.timing" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="ssms.timing.print_timing_results">
+<code class="sig-prename descclassname">ssms.timing.</code><code class="sig-name descname">print_timing_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssms.timing.print_timing_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="ssms.timing.timer">
+<code class="sig-prename descclassname">ssms.timing.</code><code class="sig-name descname">timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssms.timing.timer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-ssms.utils">
@@ -281,35 +517,28 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="building.html" class="btn btn-neutral float-left" title="Building" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="building.html" class="btn btn-neutral float-left" title="Building" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Noah Davis
+        &#169; Copyright 2020, Noah Davis.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
