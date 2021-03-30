@@ -561,8 +561,8 @@ class Analysis(QThread):
                 all_delta_a = np.insert(all_delta_a, all_delta_a.size, np.nan, axis=1)
                 all_delta_a = np.delete(all_delta_a, 0, axis=1)
 
-            end = time.time() - start
-            print(end * 1000)
+            # end = time.time() - start
+            # print(end * 1000)
 
             self.out.write(image2)
 
@@ -577,6 +577,7 @@ class Analysis(QThread):
             self.change_plot_signal.emit(0, all_delta_x)
             self.change_plot_signal.emit(1, all_delta_y)
             self.change_plot_signal.emit(3, all_delta_a)
+
         # try:
         #     # print_timing_results()
         #     print('\nAverage frame-time: {0}'.format(np.average(frame_times)))

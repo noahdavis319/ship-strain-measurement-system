@@ -18,6 +18,10 @@ from scipy.signal import savgol_filter
 
 # SSMS imports
 from ssms import Analysis
+from ssms import Range
+
+# pySerial imports
+import serial
 
 
 def configure_plot(plot, y_min, y_max, title, x_label, y_label, invert, bottom_major_spacing,
@@ -312,6 +316,9 @@ class Ui_MainWindow(object):
         # start the thread
         self.thread.start()
 
+        self.ranger = Range.Range(args)
+        self.all_z_data = []
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Ship Strain Measurement System"))
@@ -377,6 +384,8 @@ class Ui_MainWindow(object):
         self.plot_original(plot, np.copy(data))
         self.plot_sg(plot, np.copy(data))
         self.update_data_label(plot, np.copy(data))
+        if plot == 0:
+            self.update_z_plot()
 
     def plot_sg(self, plot, data):
         data = self.fill_data(data.flat)
@@ -413,6 +422,18 @@ class Ui_MainWindow(object):
             self.command_button.setText(_translate("MainWindow", "Pause Analysis"))
         self.thread.set_state(not current_state)
 
+    def update_z_plot(self):
+        val = self.ranger.read()
+        self.all_z_data.append(val)
+        p1 = np.arange(start=(len(self.all_z_data) / 10 + 1), stop=1, step=-0.1)
+        p2 = p1
+        if len(p1) > len(self.all_z_data):
+            p2 = p1[:-1].copy()
+        self.plotsa[2].setData(p2, self.all_z_data, connect="finite", pen=pg.mkPen('r', width=1))
+        data = savgol_filter(self.all_z_data, 21, 4)
+        x = np.arange(start=(len(data) / 10 + 1), stop=1, step=-0.1)
+        self.plots[2].setData(p2, data, pen=self.plot_pen)
+        self.plots_mini[2].setData(p2, data, connect="finite", pen=self.plot_pen)
 
 class Display:
     def __init__(self, args):

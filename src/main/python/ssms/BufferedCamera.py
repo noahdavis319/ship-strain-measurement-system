@@ -7,9 +7,14 @@ import time
 
 class BufferedCamera:
     def __init__(self, name):
-        self.name = name
-        self.ntype = type(name)
+        self.name = int(name) if name.isnumeric else name
+        self.isfile = True if type(self.name) is str else False
         self.cap = cv2.VideoCapture(self.name)
+        if not self.isfile:
+            self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+            self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+        print(self.isfile)
+        print(self.cap)
         self.q = queue.Queue()
         self.t = threading.Thread(target=self._reader)
         self.t.daemon = True
@@ -27,7 +32,7 @@ class BufferedCamera:
                 except queue.Empty:
                     pass
             self.q.put(frame)
-            if self.ntype == str:
+            if self.isfile:
                 time.sleep(0.024)
 
     def read(self):

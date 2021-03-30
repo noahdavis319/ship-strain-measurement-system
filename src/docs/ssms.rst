@@ -28,6 +28,14 @@ ssms.Display module
    :undoc-members:
    :show-inheritance:
 
+ssms.Range module
+-----------------
+
+.. automodule:: ssms.Range
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 ssms.SSMS module
 ----------------
 
