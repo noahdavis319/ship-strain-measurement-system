@@ -7,7 +7,7 @@ import numpy
 
 class Range:
     def __init__(self, args):
-        self.arduinoSerialData = serial.Serial('/dev/ttyACM0', 115200)
+        self.arduinoSerialData = serial.Serial(args['com'], 115200)
 
         while self.arduinoSerialData.inWaiting() <= 0:
             if self.arduinoSerialData.inWaiting() > 0:
@@ -22,14 +22,9 @@ class Range:
     def _reader(self):
         while True:
             try:
-                while self.arduinoSerialData.inWaiting() <= 0:
-                    if self.arduinoSerialData.inWaiting() > 0:
-                        pass
                 self.val = float(self.arduinoSerialData.readline())
-                print(self.val)
             except ValueError:
                 pass
-            time.sleep(0.012)
 
     def read(self):
         return self.val

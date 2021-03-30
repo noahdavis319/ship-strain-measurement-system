@@ -114,8 +114,9 @@ def create_box_from_contours(contours):
 
 
 @timer
-def calc_movement(box, l_origin, r_origin, angle):
-    a = 16 + 2.950354609929078  # these values should come from a configuration file
+def calc_movement(box, l_origin, r_origin, angle, ps, pw):
+    # a = 16 + 2.950354609929078  # these values should come from a configuration file
+    a = ps + pw
 
     area = cv2.contourArea(box)
     diag_dist = np.sqrt(2 * area)
@@ -522,7 +523,9 @@ class Analysis(QThread):
                                                 ret_text = calc_movement(co.box,
                                                                          self.last_origin_px,
                                                                          self.running_origin,
-                                                                         co.angle)
+                                                                         co.angle,
+                                                                         self.args['plus_width'],
+                                                                         self.args['plus_stroke'])
                                                 self.tdata.append('{0},{1},{2},{3}'.format(self.frame_num,
                                                                                            self.running_origin[0],
                                                                                            self.running_origin[1],

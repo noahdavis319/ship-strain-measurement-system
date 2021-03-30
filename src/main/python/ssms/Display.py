@@ -274,14 +274,14 @@ class Ui_MainWindow(object):
         self.plot_2_mini = self.plot_2_mini.plot([0])
 
         self.plot_3_parent = pg.PlotWidget(MainWindow)
-        configure_plot(self.plot_3_parent, -20, 20, 'Z Position (in) vs. Time (s)', 'Time (s)', 'Z Position (in)',
-                       True, 60, 15, 10, 1, 255, 255)
+        configure_plot(self.plot_3_parent, args['range_min'], args['range_max'], 'Z Position (in) vs. Time (s)',
+                       'Time (s)', 'Z Position (in)', True, 60, 15, 10, 1, 255, 255)
         self.tab_z_layout.addWidget(self.plot_3_parent)
         self.plot_3 = self.plot_3_parent.plot([1])
         self.plot_3a = self.plot_3_parent.plot([1])
         self.plot_3_mini = pg.PlotWidget(MainWindow)
-        configure_plot(self.plot_3_mini, -20, 20, 'Z Position (in) vs. Time (s)', 'Time (s)', 'Z Position (in)',
-                       True, 60, 15, 10, 1, 255, 255)
+        configure_plot(self.plot_3_mini, args['range_min'], args['range_max'], 'Z Position (in) vs. Time (s)',
+                       'Time (s)', 'Z Position (in)', True, 60, 15, 10, 1, 255, 255)
         self.frame_3_layout.addWidget(self.plot_3_mini)
         self.plot_3_mini = self.plot_3_mini.plot([0])
 
@@ -399,7 +399,10 @@ class Ui_MainWindow(object):
                                   connect="finite", pen=pg.mkPen('r', width=1))
 
     def update_data_label(self, label_index, data):
-        last_val = data.flat[-1]
+        if type(data) is np.ndarray:
+            last_val = data.flat[-1]
+        else:
+            last_val = data[-1]
         if not np.isnan(last_val):
             lookup = ['X', 'Y', 'Z', 'A']
             if label_index == 0:
@@ -425,6 +428,7 @@ class Ui_MainWindow(object):
     def update_z_plot(self):
         val = self.ranger.read()
         self.all_z_data.append(val)
+        self.update_data_label(2, self.all_z_data)
         p1 = np.arange(start=(len(self.all_z_data) / 10 + 1), stop=1, step=-0.1)
         p2 = p1
         if len(p1) > len(self.all_z_data):
@@ -434,6 +438,7 @@ class Ui_MainWindow(object):
         x = np.arange(start=(len(data) / 10 + 1), stop=1, step=-0.1)
         self.plots[2].setData(p2, data, pen=self.plot_pen)
         self.plots_mini[2].setData(p2, data, connect="finite", pen=self.plot_pen)
+
 
 class Display:
     def __init__(self, args):

@@ -59,3 +59,9 @@ list:
 	else \
 	  	make prepare; \
 	fi
+
+windows:
+	python setup.py sdist bdist_wheel && pip install ./dist/ssms-0.1-py3-none-any.whl --upgrade --force-reinstall
+
+winstall:
+	pip install -r requirements.txt

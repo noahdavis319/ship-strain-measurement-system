@@ -20,7 +20,13 @@ def cli():
     parser.add_argument("-p_max", "--plus-max", required=False, type=int, default=sys.maxsize,
                         help="The maximum plus area")
     parser.add_argument("-s", "--scale", required=False, type=int, default=50, help="Scaled image size")
-    parser.add_argument("-c", "--com", required=True, type=str, default="com1", help="LIDAR COM port")
+    parser.add_argument("-c", "--com", required=True, type=str, help="LIDAR COM port")
+    parser.add_argument("-ps", "--plus-stroke", required=True, type=float, help="Plus target stroke")
+    parser.add_argument("-pw", "--plus-width", required=True, type=float, help="Plus target width")
+    parser.add_argument("-rmin", "--range-min", required=False, type=float, default=0,
+                        help="Minimum range value for plotting (cm)")
+    parser.add_argument("-rmax", "--range-max", required=False, type=float, default=100,
+                        help="Maximum range value for plotting (cm)")
     args = vars(parser.parse_args())
 
     _run(args)
