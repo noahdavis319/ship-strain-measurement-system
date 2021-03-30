@@ -428,6 +428,8 @@ class Ui_MainWindow(object):
     def update_z_plot(self):
         val = self.ranger.read()
         self.all_z_data.append(val)
+        if len(self.all_z_data) > 300:
+            self.all_z_data.pop(0)
         self.update_data_label(2, self.all_z_data)
         p1 = np.arange(start=(len(self.all_z_data) / 10 + 1), stop=1, step=-0.1)
         p2 = p1
