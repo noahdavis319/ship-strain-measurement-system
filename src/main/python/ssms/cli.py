@@ -21,6 +21,7 @@ def cli():
                         help="The maximum plus area")
     parser.add_argument("-s", "--scale", required=False, type=int, default=50, help="Scaled image size")
     parser.add_argument("-c", "--com", required=True, type=str, help="LIDAR COM port")
+    parser.add_argument("-b", "--baud", required=False, type=int, default=115200, help="LIDAR COM baudrate")
     parser.add_argument("-ps", "--plus-stroke", required=True, type=float, help="Plus target stroke")
     parser.add_argument("-pw", "--plus-width", required=True, type=float, help="Plus target width")
     parser.add_argument("-rmin", "--range-min", required=False, type=float, default=0,

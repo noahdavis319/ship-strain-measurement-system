@@ -317,16 +317,16 @@ class Ui_MainWindow(object):
         self.thread.start()
 
         self.ranger = Range.Range(args)
-        self.all_z_data = []
+        self.all_z_data = [np.nan] * 3000
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Ship Strain Measurement System"))
         self.camera_view_mini.setText(_translate("MainWindow", "Loading"))
-        self.z_val_label.setText(_translate("MainWindow", "Z: +0.0000"))
-        self.x_val_label.setText(_translate("MainWindow", "X: +0.0000"))
-        self.y_val_label.setText(_translate("MainWindow", "Y: +0.0000"))
-        self.angle_val_label.setText(_translate("MainWindow", "A: +0.0000"))
+        self.z_val_label.setText(_translate("MainWindow", "Z: +0.00"))
+        self.x_val_label.setText(_translate("MainWindow", "X: +0.00"))
+        self.y_val_label.setText(_translate("MainWindow", "Y: +0.00"))
+        self.angle_val_label.setText(_translate("MainWindow", "A: +0.00"))
         self.command_button.setText(_translate("MainWindow", "Start Analysis"))
         self.command_button.clicked.connect(self.button_click)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_main), _translate("MainWindow", "Overview"))
@@ -385,8 +385,11 @@ class Ui_MainWindow(object):
         self.plot_sg(plot, np.copy(data))
         self.update_data_label(plot, np.copy(data))
         if plot == 0:
-            self.update_z_plot()
-
+            try:
+                self.update_z_plot()
+            except:
+                pass
+				
     def plot_sg(self, plot, data):
         data = self.fill_data(data.flat)
         data = savgol_filter(data, 15, 3)
@@ -413,7 +416,7 @@ class Ui_MainWindow(object):
                 self.z_val = last_val
             elif label_index == 3:
                 self.a_val = last_val
-            text = '{0}: {1:+.4f}'.format(lookup[label_index], last_val)
+            text = '{0}: {1:+.2f}'.format(lookup[label_index], last_val)
             self.data_labels[label_index].setText(text)
 
     def button_click(self):
@@ -428,7 +431,7 @@ class Ui_MainWindow(object):
     def update_z_plot(self):
         val = self.ranger.read()
         self.all_z_data.append(val)
-        if len(self.all_z_data) > 300:
+        if len(self.all_z_data) > 3000:
             self.all_z_data.pop(0)
         self.update_data_label(2, self.all_z_data)
         p1 = np.arange(start=(len(self.all_z_data) / 10 + 1), stop=1, step=-0.1)

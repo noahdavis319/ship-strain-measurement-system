@@ -79,7 +79,7 @@ def calc_contour_center(contour):
 def detect_shape(c):
     shape = None
     peri = cv2.arcLength(c, True)
-    approx = cv2.approxPolyDP(c, 0.02 * peri, True)  # Ramer-Douglas-Peucker algorithm
+    approx = cv2.approxPolyDP(c, 0.03 * peri, True)  # Ramer-Douglas-Peucker algorithm
     if len(approx) == 3:
         shape = Shape.TRIANGLE
     elif len(approx) == 12:
@@ -187,24 +187,33 @@ def order_triangles(triangles):
 
 @timer
 def is_target_found(plus, triangles):
-    return do_contours_make_square(triangles) and \
-           do_contours_align_to(triangles, plus) and \
-           does_plus_lie_in_triangles(plus, triangles)
-
+    print('-----')
+    found = do_contours_make_square(triangles, tolerance=0.1) and \
+	        do_contours_align_to(triangles, plus, tolerance=16.0) and \
+            does_plus_lie_in_triangles(plus, triangles) 
+    if found:
+        print("TARGET FOUND!")
+    return found
 
 @timer
 def does_plus_lie_in_triangles(plus, triangles):
     triangles_box = create_box_from_contours(triangles)
 
-    return is_plus_centered(plus, triangles_box) and \
+    a = is_plus_centered(plus, triangles_box) and \
            is_contour_in_box(plus, triangles_box) and \
            is_contour_in_box(plus, get_bounding_box_of_contours(triangles))
-
+	   
+    if a:
+        print("Plus lies within")
+    else:
+        print("Plus does not lie")
+		
+    return a
 
 @timer
 def is_plus_centered(plus, triangles_box):
     M, cX, cY = calc_contour_center(triangles_box)
-    return val_close_to(cX, plus.cX, 0.05) and val_close_to(cY, plus.cY, 0.05)
+    return val_close_to(cX, plus.cX, 0.1) and val_close_to(cY, plus.cY, 0.1)
 
 
 @timer
@@ -230,7 +239,7 @@ def is_contour_plus(contour):
     for ia in [1, 2]:
         test_segment = segments[ia]
         for ib in [0, 1, 2]:
-            if not val_close_to(master_segment[ib], test_segment[ib], vtol=5):
+            if not val_close_to(master_segment[ib], test_segment[ib], vtol=0.1):
                 return False
 
     return True
@@ -245,7 +254,7 @@ def is_contour_isosceles_right_triangle(contour):
     ]
     lengths.sort()
 
-    return val_close_to(np.hypot(lengths[0], lengths[1]), lengths[2], 0.05)
+    return val_close_to(np.hypot(lengths[0], lengths[1]), lengths[2], 0.1)
 
 
 @timer
@@ -280,20 +289,22 @@ def do_contours_make_square(contours, tolerance=0.05):
     if val_close_to(d1, d3, tolerance) and \
             val_close_to(d2, calc_hypotenuse(d1), tolerance) and \
             val_close_to(d2, calc_hypotenuse(d3), tolerance):
+        print("Contours make square")
         return True
-
+    print("Contours do not make square")
     return False
 
 
 @timer
-def do_contours_align_to(contours, contour, tolerance=2.0):
+def do_contours_align_to(contours, contour, tolerance=8.0):
     angles = []
     for co in contours:
         angles.append((co.angle - contour.angle) % 45)
     for angle in angles:
         if not (angle <= tolerance or 45 - angle <= tolerance):
+            print("Out of alignment")
             return False
-
+    print("In alignment")
     return True
 
 
@@ -336,6 +347,7 @@ def draw_vertex_points(img, co):
 
 def draw_contour_outline(img, co):
     cv2.drawContours(img, [co.approx], -1, (0, 255, 0), 2)
+    cv2.putText(img, str(co.verts), (co.cX, co.cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
 
 def draw_contour_rect(img, box):
@@ -369,8 +381,8 @@ def get_image(capture_device, scale_percent=50):
 def get_contours(image):
     if image is not None:
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-        lower = np.array([0, 0, 80], np.uint8)
-        upper = np.array([179, 255, 255], np.uint8)
+        lower = np.array([0, 0, 00], np.uint8)  # 0 0 80 - black (0,0,0 for blue) 
+        upper = np.array([179, 66, 255], np.uint8) # (179,255,255 for black) (179,66,255 for blue)
         mask = cv2.inRange(hsv, lower, upper)
         blur = cv2.GaussianBlur(mask, (5, 5), 0)
         thresh = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY_INV)[1]
@@ -465,6 +477,7 @@ class Analysis(QThread):
             all_co = []
             for c in contours:
                 co = ContourObject(c)
+                #draw_contour_outline(image2, co)
                 if co.valid:
                     all_co.append(co)
                     if len(self.last_contours) > 0:
@@ -478,10 +491,12 @@ class Analysis(QThread):
                     if co.verts in self.area_map:
                         co.calc()  # calc additional variables only for shapes that are triangles or pluses
                         if self.area_map[co.verts][0] < co.area < self.area_map[co.verts][1]:
-                            if co.verts == 3 and is_contour_isosceles_right_triangle(co):
+                            if co.verts == 3: # and is_contour_isosceles_right_triangle(co):
                                 triangles.append(co)
-                            elif co.verts == 12 and is_contour_plus(co):
+                                draw_contour_outline(image2, co)
+                            elif co.verts == 12: # and is_contour_plus(co):
                                 pluses.append(co)
+                                draw_contour_outline(image2, co)
             else:
                 for co in fast_filter:
                     co.calc()
